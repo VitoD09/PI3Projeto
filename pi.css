@@ -1,0 +1,504 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cor-primaria: #2563eb;
+    --cor-primaria-escura: #1d4ed8;
+    --cor-fundo: #f1f5f9;
+    --cor-branco: #ffffff;
+    --cor-texto: #1e293b;
+    --cor-texto-secundario: #64748b;
+    --cor-borda: #e2e8f0;
+    --cor-sucesso: #16a34a;
+    --cor-perigo: #dc2626;
+    --sombra: 0 4px 15px rgba(15, 23, 42, 0.06);
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 24px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* ==========================
+   2. TOPO E NAVEGAÇÃO
+   FLEXBOX
+========================== */
+
+body > header {
+    background-color: var(--cor-branco);
+    border-bottom: 1px solid var(--cor-borda);
+    padding: 24px 5%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+body > header h1 {
+    color: var(--cor-primaria);
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    line-height: 1.3;
+}
+
+body > header p {
+    color: var(--cor-texto-secundario);
+    margin-top: 6px;
+    font-size: 0.95rem;
+}
+
+/* Menu de navegação */
+
+body > header nav ul {
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+body > header nav a {
+    display: block;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    color: var(--cor-texto-secundario);
+    transition: 0.2s ease;
+}
+
+body > header nav a:hover,
+body > header nav a:focus-visible {
+    background-color: #eff6ff;
+    color: var(--cor-primaria);
+    outline: none;
+}
+
+/* ==========================
+   3. CONTEÚDO PRINCIPAL
+========================== */
+
+main {
+    width: min(1200px, 90%);
+    margin: 32px auto;
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+main section {
+    background-color: var(--cor-branco);
+    padding: 26px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 16px;
+    box-shadow: var(--sombra);
+
+    /* Evita que tabelas largas estourem a página */
+    min-width: 0;
+}
+
+main section > header {
+    margin-bottom: 24px;
+}
+
+main section > header h2 {
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+}
+
+main section > header p {
+    color: var(--cor-texto-secundario);
+}
+
+/* ==========================
+   4. DASHBOARD
+   CSS GRID
+========================== */
+
+#dashboard {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
+
+#dashboard > header {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+}
+
+.card-financeiro {
+    padding: 22px;
+    background-color: #f8fafc;
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+    min-width: 0;
+
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-financeiro:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--sombra);
+}
+
+.card-financeiro h3 {
+    font-size: 0.9rem;
+    color: var(--cor-texto-secundario);
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.card-financeiro p {
+    font-size: clamp(1.1rem, 2vw, 1.6rem);
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+/* Saldo, receitas, despesas e economia */
+
+#saldo-atual {
+    color: var(--cor-primaria);
+}
+
+#total-receitas {
+    color: var(--cor-sucesso);
+}
+
+#total-despesas {
+    color: var(--cor-perigo);
+}
+
+#total-economia {
+    color: #7c3aed;
+}
+
+/* ==========================
+   5. FORMULÁRIO
+   CSS GRID
+========================== */
+
+#form-transacao {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+#form-transacao > div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+#form-transacao label,
+#lista-transacoes label {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background-color: var(--cor-branco);
+    color: var(--cor-texto);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+#form-transacao > div:nth-child(6) {
+    grid-column: 1 / -1;
+}
+
+/* Botões */
+
+button {
+    border: none;
+    border-radius: 8px;
+    padding: 11px 16px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+#form-transacao > button {
+    grid-column: 1 / -1;
+    justify-self: start;
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+#form-transacao > button:hover {
+    background-color: var(--cor-primaria-escura);
+}
+
+button:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 3px;
+}
+
+/* ==========================
+   6. LISTA DE TRANSAÇÕES
+========================== */
+
+#lista-transacoes > div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    max-width: 350px;
+}
+
+#lista-transacoes > div select {
+    flex: 1;
+}
+
+/* Permite rolagem horizontal da tabela */
+
+#lista-transacoes {
+    overflow: hidden;
+}
+
+#lista-transacoes table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+#lista-transacoes caption {
+    text-align: left;
+    color: var(--cor-texto-secundario);
+    padding: 0 0 12px;
+}
+
+#lista-transacoes th,
+#lista-transacoes td {
+    padding: 14px 12px;
+    border-bottom: 1px solid var(--cor-borda);
+    white-space: nowrap;
+}
+
+#lista-transacoes th {
+    background-color: #f8fafc;
+    color: var(--cor-texto-secundario);
+    font-size: 0.85rem;
+}
+
+#lista-transacoes tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+#lista-transacoes td button {
+    margin: 2px;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+}
+
+#lista-transacoes [data-acao="editar"] {
+    background-color: #dbeafe;
+    color: #1d4ed8;
+}
+
+#lista-transacoes [data-acao="excluir"] {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+/* ==========================
+   7. RELATÓRIOS
+========================== */
+
+#relatorios article {
+    padding: 22px;
+    background-color: #f8fafc;
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+}
+
+#relatorios h3 {
+    margin-bottom: 18px;
+}
+
+#relatorios dl {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 14px 24px;
+}
+
+#relatorios dt {
+    color: var(--cor-texto-secundario);
+}
+
+#relatorios dd {
+    font-weight: 700;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+/* ==========================
+   8. RODAPÉ
+========================== */
+
+body > footer {
+    padding: 22px 5%;
+    text-align: center;
+    background-color: var(--cor-branco);
+    border-top: 1px solid var(--cor-borda);
+    color: var(--cor-texto-secundario);
+    font-size: 0.9rem;
+}
+
+/* ==========================
+   9. TABLETS
+========================== */
+
+@media (max-width: 900px) {
+    #dashboard {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    body > header {
+        align-items: flex-start;
+    }
+}
+
+/* ==========================
+   10. CELULARES
+========================== */
+
+@media (max-width: 600px) {
+    body > header {
+        padding: 20px 5%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+    }
+
+    body > header nav ul {
+        justify-content: flex-start;
+        gap: 6px;
+    }
+
+    body > header nav a {
+        padding: 9px 10px;
+        font-size: 0.9rem;
+    }
+
+    main {
+        width: 94%;
+        margin: 20px auto;
+        gap: 20px;
+    }
+
+    main section {
+        padding: 18px;
+        border-radius: 12px;
+    }
+
+    #dashboard {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    #form-transacao {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    #form-transacao > div:nth-child(6),
+    #form-transacao > button {
+        grid-column: auto;
+    }
+
+    #form-transacao > button {
+        width: 100%;
+    }
+
+    #lista-transacoes > div {
+        align-items: flex-start;
+        flex-direction: column;
+        width: 100%;
+        max-width: none;
+    }
+
+    #lista-transacoes > div select {
+        width: 100%;
+    }
+
+    #lista-transacoes table {
+        display: block;
+        overflow-x: auto;
+        max-width: 100%;
+    }
+
+    #lista-transacoes th,
+    #lista-transacoes td {
+        padding: 12px 10px;
+    }
+
+    #relatorios article {
+        padding: 16px;
+    }
+}
+
+/* ==========================
+   11. ACESSIBILIDADE
+========================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
