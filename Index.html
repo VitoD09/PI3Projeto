@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema de controle financeiro pessoal">
+    <title>Dashboard | Controle Financeiro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+<header>
+    <div>
+        <h1>Controle Financeiro</h1>
+        <p>Organize suas receitas, despesas e seu saldo.</p>
+    </div>
+    <nav aria-label="Navegação principal">
+        <ul>
+            <li><a href="index.html" aria-current="page">Dashboard</a></li>
+            <li><a href="transacoes.html" >Transações</a></li>
+            <li><a href="relatorios.html" >Relatórios</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+
+<section aria-labelledby="titulo-dashboard">
+    <header>
+        <h2 id="titulo-dashboard">Dashboard</h2>
+        <p>Resumo da sua situação financeira.</p>
+    </header>
+    <div class="cards">
+        <article class="card-financeiro"><h3>Saldo atual</h3><p id="saldo-atual">R$ 0,00</p></article>
+        <article class="card-financeiro"><h3>Total de receitas</h3><p id="total-receitas">R$ 0,00</p></article>
+        <article class="card-financeiro"><h3>Total de despesas</h3><p id="total-despesas">R$ 0,00</p></article>
+        <article class="card-financeiro"><h3>Economia</h3><p id="total-economia">R$ 0,00</p></article>
+    </div>
+</section>
+<section aria-labelledby="titulo-boas-vindas">
+    <header><h2 id="titulo-boas-vindas">Visão geral</h2><p>Acompanhe suas movimentações e mantenha o orçamento sob controle.</p></header>
+    <p id="mensagem-dashboard" class="mensagem-vazia">Ainda não há transações cadastradas. Adicione uma movimentação na página Transações para começar.</p>
+    <p><a class="btn-primary" style="display:inline-block;margin-top:12px" href="transacoes.html">Cadastrar transação</a></p>
+</section>
+<section aria-labelledby="titulo-recentes">
+    <header><h2 id="titulo-recentes">Transações recentes</h2><p>As últimas movimentações registradas.</p></header>
+    <div class="tabela-wrapper">
+    <table>
+        <thead><tr><th>Descrição</th><th>Categoria</th><th>Tipo</th><th>Data</th><th>Valor</th></tr></thead>
+        <tbody id="transacoes-recentes"><tr><td colspan="5">Nenhuma transação cadastrada.</td></tr></tbody>
+    </table>
+    </div>
+</section>
+
+</main>
+<footer><p>&copy; 2026 Controle Financeiro</p></footer>
+</body>
+</html>
