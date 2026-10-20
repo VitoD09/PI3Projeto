@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema de controle financeiro pessoal">
+    <title>Relatórios | Controle Financeiro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+<header>
+    <div>
+        <h1>Controle Financeiro</h1>
+        <p>Organize suas receitas, despesas e seu saldo.</p>
+    </div>
+    <nav aria-label="Navegação principal">
+        <ul>
+            <li><a href="index.html" >Dashboard</a></li>
+            <li><a href="transacoes.html" >Transações</a></li>
+            <li><a href="relatorios.html" aria-current="page">Relatórios</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+
+<section aria-labelledby="titulo-relatorios">
+    <header><h2 id="titulo-relatorios">Relatórios financeiros</h2><p>Confira o resultado das movimentações cadastradas.</p></header>
+    <article class="resumo-relatorio">
+        <h3>Resumo financeiro</h3>
+        <dl>
+            <dt>Total de receitas</dt><dd id="relatorio-receitas" class="valor-receita">R$ 0,00</dd>
+            <dt>Total de despesas</dt><dd id="relatorio-despesas" class="valor-despesa">R$ 0,00</dd>
+            <dt>Saldo final</dt><dd id="relatorio-saldo">R$ 0,00</dd>
+            <dt>Quantidade de transações</dt><dd id="relatorio-quantidade">0</dd>
+        </dl>
+    </article>
+</section>
+<section aria-labelledby="titulo-comparacao">
+    <header><h2 id="titulo-comparacao">Comparação entre receitas e despesas</h2><p>As barras representam os valores registrados em cada grupo.</p></header>
+    <div class="barras">
+        <div class="barra-item"><span>Receitas</span><div class="barra-fundo"><div id="barra-receitas" class="barra receitas"></div></div><strong id="barra-valor-receitas">R$ 0,00</strong></div>
+        <div class="barra-item"><span>Despesas</span><div class="barra-fundo"><div id="barra-despesas" class="barra despesas"></div></div><strong id="barra-valor-despesas">R$ 0,00</strong></div>
+    </div>
+    <p id="mensagem-relatorio" class="mensagem-vazia">Cadastre transações para visualizar a comparação.</p>
+</section>
+
+</main>
+<footer><p>&copy; 2026 Controle Financeiro</p></footer>
+</body>
+</html>
