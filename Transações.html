@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema de controle financeiro pessoal">
+    <title>Transações | Controle Financeiro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+<header>
+    <div>
+        <h1>Controle Financeiro</h1>
+        <p>Organize suas receitas, despesas e seu saldo.</p>
+    </div>
+    <nav aria-label="Navegação principal">
+        <ul>
+            <li><a href="index.html" >Dashboard</a></li>
+            <li><a href="transacoes.html" aria-current="page">Transações</a></li>
+            <li><a href="relatorios.html" >Relatórios</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+
+<section aria-labelledby="titulo-form">
+    <header><h2 id="titulo-form">Nova transação</h2><p>Registre uma receita ou despesa.</p></header>
+    <form id="form-transacao">
+        <input type="hidden" id="transacao-id">
+        <div><label for="descricao">Descrição</label><input type="text" id="descricao" name="descricao" placeholder="Ex.: Salário" required maxlength="100"></div>
+        <div><label for="valor">Valor (R$)</label><input type="number" id="valor" name="valor" min="0.01" step="0.01" placeholder="0,00" required></div>
+        <div><label for="tipo">Tipo</label><select id="tipo" name="tipo" required><option value="">Selecione</option><option value="receita">Receita</option><option value="despesa">Despesa</option></select></div>
+        <div><label for="categoria">Categoria</label><select id="categoria" name="categoria" required>
+            <option value="">Selecione</option><option value="Salário">Salário</option><option value="Alimentação">Alimentação</option><option value="Moradia">Moradia</option><option value="Transporte">Transporte</option><option value="Saúde">Saúde</option><option value="Educação">Educação</option><option value="Lazer">Lazer</option><option value="Compras">Compras</option><option value="Investimentos">Investimentos</option><option value="Outros">Outros</option>
+        </select></div>
+        <div><label for="data">Data</label><input type="date" id="data" name="data" required></div>
+        <div class="full-width"><label for="observacao">Observação</label><textarea id="observacao" name="observacao" rows="3" placeholder="Observação opcional..."></textarea></div>
+        <button class="btn-primary full-width" type="submit" id="botao-salvar">Adicionar transação</button>
+    </form>
+</section>
+<section aria-labelledby="titulo-lista">
+    <header><h2 id="titulo-lista">Transações cadastradas</h2><p>Edite ou exclua movimentações já registradas.</p></header>
+    <div class="filtros"><label for="filtro-tipo">Filtrar por tipo</label><select id="filtro-tipo"><option value="todos">Todas as transações</option><option value="receita">Somente receitas</option><option value="despesa">Somente despesas</option></select></div>
+    <div class="tabela-wrapper">
+    <table>
+        <caption>Lista de transações financeiras</caption>
+        <thead><tr><th>Descrição</th><th>Categoria</th><th>Tipo</th><th>Data</th><th>Valor</th><th>Ações</th></tr></thead>
+        <tbody id="tabela-transacoes"><tr><td colspan="6">Nenhuma transação cadastrada.</td></tr></tbody>
+    </table>
+    </div>
+</section>
+
+</main>
+<footer><p>&copy; 2026 Controle Financeiro</p></footer>
+</body>
+</html>
